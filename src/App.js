@@ -1,24 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { RegistrationProvider } from "./context/RegistrationContext";
+import RegistrationForm from "./components/RegistrationForm";
+import RegistrationList from "./components/RegistrationList";
+import SeatsInfo from "./components/SeatsInfo";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <RegistrationProvider>
+      <div>
+        <h1>Event Registration</h1>
+        <SeatsInfo />
+        <RegistrationForm />
+        <RegistrationList />
+      </div>
+    </RegistrationProvider>
   );
 }
 
