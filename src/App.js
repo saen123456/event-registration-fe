@@ -7,8 +7,7 @@ import SeatsInfo from "./components/SeatsInfo";
 function App() {
   return (
     <RegistrationProvider>
-      <div>
-        <h1>Event Registration</h1>
+      <div class="">
         <SeatsInfo />
         <RegistrationForm />
         <RegistrationList />
