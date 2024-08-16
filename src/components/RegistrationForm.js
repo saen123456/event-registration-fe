@@ -20,6 +20,8 @@ const RegistrationForm = () => {
     setFirstName("");
     setLastName("");
     setPhone("");
+
+    window.location.reload();
   };
 
   return (

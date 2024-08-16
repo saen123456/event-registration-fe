@@ -5,7 +5,7 @@ const SeatsInfo = () => {
   const { state } = useRegistrationContext();
 
   return (
-    <div className="max-w-md mx-auto p-8 bg-gray-100 rounded-xl shadow-md space-y-6 mb-12">
+    <div className="max-w-md mx-auto p-8 bg-gray-100 rounded-xl shadow-md space-y-6 mb-12 mt-12">
       <p className="text-lg font-semibold">
         <h1>Event Registration</h1>
       </p>
