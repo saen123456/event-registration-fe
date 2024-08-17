@@ -16,12 +16,29 @@ const RegistrationForm = () => {
       phone,
     });
 
+    const response2 = await axios.get(
+      "http://localhost:8282/user/available-seats"
+    );
+
+    const response3 = await axios.get(
+      "http://localhost:8282/user/total-registrations"
+    );
+
     dispatch({ type: "SET_REGISTRATIONS", payload: response.data });
+
+    dispatch({
+      type: "SET_AVAILABLE_SEATS",
+      payload: response2.data.availableSeats,
+    });
+
+    dispatch({
+      type: "SET_TOTAL_REGISTRATIONS",
+      payload: response3.data.totalRegistrations,
+    });
+
     setFirstName("");
     setLastName("");
     setPhone("");
-
-    window.location.reload();
   };
 
   return (

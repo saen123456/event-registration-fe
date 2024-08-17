@@ -4,7 +4,6 @@ import * as dayjs from "dayjs";
 
 const RegistrationList = () => {
   const { state } = useRegistrationContext();
-  console.log(state);
 
   return (
     <table className="min-w-full bg-white shadow-md rounded-lg overflow-hidden mt-16 max-w-md">
@@ -18,7 +17,7 @@ const RegistrationList = () => {
         </tr>
       </thead>
       <tbody>
-        {state?.registrations?.map((reg, index) => (
+        {state.registrations.map((reg, index) => (
           <tr
             key={reg._id}
             className="border-b border-gray-200 hover:bg-gray-100"
