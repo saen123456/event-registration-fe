@@ -78,6 +78,8 @@ const RegistrationList = () => {
 
   return (
     <div style={{ height: 400, width: "60%" }} className="mt-12 mx-auto">
+      {" "}
+      {/* ปรับให้กว้างเต็มที่ */}
       <DataGrid
         rows={rows}
         columns={columns}

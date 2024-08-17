@@ -17,7 +17,7 @@ const SeatsConfis = () => {
     );
 
     const response3 = await axios.get(
-      "http://localhost:8282/user/total-registrations"
+      "http://localhost:8282/user/total-registrations" 
     );
 
     dispatch({ type: "SET_REGISTRATIONS", payload: response.data });
@@ -43,7 +43,7 @@ const SeatsConfis = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="max-w-md mx-auto p-8 bg-white rounded-xl shadow-md space-y-6 mb-12 mt-12"
+      className="w-80 p-8 bg-white rounded-xl shadow-md space-y-6 mb-12 mt-12"
     >
       {/* <div className="grid gap-6 md:grid-cols-2">
         <input
