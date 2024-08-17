@@ -1,36 +1,44 @@
 import React from "react";
+import { DataGrid } from "@mui/x-data-grid";
 import { useRegistrationContext } from "../context/RegistrationContext";
 import * as dayjs from "dayjs";
 
 const RegistrationList = () => {
   const { state } = useRegistrationContext();
 
+  const columns = [
+    { field: "id", headerName: "No", width: 70 },
+    { field: "firstName", headerName: "First Name", width: 130 },
+    { field: "lastName", headerName: "Last Name", width: 130 },
+    { field: "phone", headerName: "Phone", width: 130 },
+    {
+      field: "createdAt",
+      headerName: "Time",
+      width: 180,
+      // valueGetter: (params) =>
+        // dayjs(params.row?.createdAt).format("DD/MM/YYYY HH:mm:ss"),
+    },
+  ];
+
+  const rows = state.registrations.map((reg, index) => ({
+    id: index + 1,
+    firstName: reg.firstName,
+    lastName: reg.lastName,
+    phone: reg.phone,
+    createdAt: dayjs(reg.createdAt).format("DD/MM/YYYY HH:mm:ss"),
+  }));
+
   return (
-    <table className="min-w-full bg-white shadow-md rounded-lg overflow-hidden mt-16 max-w-md">
-      <thead className="bg-blue-500 text-white">
-        <tr>
-          <th className="py-3 px-6 text-left">No</th>
-          <th className="py-3 px-6 text-left">First Name</th>
-          <th className="py-3 px-6 text-left">Last Name</th>
-          <th className="py-3 px-6 text-left">Phone</th>
-          <th className="py-3 px-6 text-left">Time</th>
-        </tr>
-      </thead>
-      <tbody>
-        {state.registrations.map((reg, index) => (
-          <tr
-            key={reg._id}
-            className="border-b border-gray-200 hover:bg-gray-100"
-          >
-            <td className="py-3 px-6">{index + 1}</td>
-            <td className="py-3 px-6">{reg.firstName}</td>
-            <td className="py-3 px-6">{reg.lastName}</td>
-            <td className="py-3 px-6">{reg.phone}</td>
-            <td className="py-3 px-6">{dayjs(reg.createdAt).format("DD/MM/YYYY HH:mm:ss")}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
+    <div style={{ height: 400, width: "50%" }} class="mt-12 mx-auto">
+      <DataGrid
+        rows={rows}
+        columns={columns}
+        pageSize={5}
+        rowsPerPageOptions={[5]}
+        // checkboxSelection
+        disableSelectionOnClick
+      />
+    </div>
   );
 };
 
