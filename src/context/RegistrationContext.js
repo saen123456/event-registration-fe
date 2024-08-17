@@ -15,6 +15,8 @@ const reducer = (state, action) => {
       return { ...state, registrations: action.payload };
     case "SET_AVAILABLE_SEATS":
       return { ...state, availableSeats: action.payload };
+    case "SET_TOTAL_SEATS":
+      return { ...state, totalSeats: action.payload };
     case "SET_TOTAL_REGISTRATIONS":
       return { ...state, totalRegistrations: action.payload };
     default:
@@ -34,6 +36,10 @@ export const RegistrationProvider = ({ children }) => {
       dispatch({
         type: "SET_AVAILABLE_SEATS",
         payload: response.data.availableSeats,
+      });
+      dispatch({
+        type: "SET_TOTAL_SEATS",
+        payload: response.data.totalSeats,
       });
     });
 

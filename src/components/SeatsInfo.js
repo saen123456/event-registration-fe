@@ -10,11 +10,15 @@ const SeatsInfo = () => {
         <h1>Event Registration</h1>
       </p>
       <p className="text-lg font-semibold">
-        Available Seats:{" "}
+        ที่นั่งทั้งหมด:{" "}
+        <span className="text-blue-500">{state.totalSeats}</span>
+      </p>
+      <p className="text-lg font-semibold">
+        ที่นั่งคงเหลือ:{" "}
         <span className="text-blue-500">{state.availableSeats}</span>
       </p>
       <p className="text-lg font-semibold">
-        Total Registrations:{" "}
+        ที่นั่งที่ถูกจองแล้ว:{" "}
         <span className="text-green-500">{state.totalRegistrations}</span>
       </p>
     </div>
